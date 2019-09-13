@@ -22,22 +22,20 @@ function createListItem(item){
 	ul.appendChild(li);
 	input.value = "";
 
-
 	//Append delete button
-
 	const dBtn = document.createElement("button");
 	dBtn.appendChild(document.createTextNode("X"));
 	dBtn.className = "btn"
 	li.appendChild(dBtn);
 
+	//Add delete button event listener & function
 	dBtn.addEventListener('click',deleteListItem);
-
 	function deleteListItem(){
 		li.parentNode.removeChild(li);
+		itemsArray.pop(li);
 	}
 
 	//Add selected/done/crossedout feature
-
 	li.addEventListener('click',done);
 	function done(){
 		li.classList.toggle("done");

@@ -38,9 +38,15 @@ all but edit button is done as of 9/12/2019
 
 What do I need to test and what can go wrong?
 
-1) input field is not clearing after clicking do-it button
-2) value of input field is not added to list
-3) buttons are not working
+1) input field is not clearing after clicking do-it button - check
+2) value of input field is not added to list - check
+3) buttons are not working - check
+4) delete button does not clear item from localStorage
+   -what should be done?
+    remove selected item from itemArray then save to localStorage
+   -what are the challenges you've met?
+    I dont know how to delete certain item from itemArray
+    
 
 
 
