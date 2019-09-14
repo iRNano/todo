@@ -41,7 +41,7 @@ What do I need to test and what can go wrong?
 1) input field is not clearing after clicking do-it button - check
 2) value of input field is not added to list - check
 3) buttons are not working - check
-4) delete button does not clear item from localStorage
+4) delete button does not delete item from localStorage
    -what should be done?
     remove selected item from itemArray then save to localStorage
    -what are the challenges you've met?
