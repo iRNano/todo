@@ -71,17 +71,19 @@ function createListItem(item){
 		for(let i=0; i<itemsArray.length;i++){
 			if(itemsArray[i] === item){
 				console.log(i);
-				console.log(i-1);
 				console.log(item);
-
 				itemsArray.splice(i, 1);
-				
-
 			}
 		}
-		localStorage.setItem('items', JSON.stringify(itemsArray));
-		
+		localStorage.setItem('items', JSON.stringify(itemsArray));		
 	}
+
+	//Append edit button
+	const edtBtn = document.createElement("button");
+	edtBtn.appendChild(document.createTextNode("Edit"))
+	edtBtn.className ="btn";
+	li.appendChild(edtBtn);
+
 
 	//Add selected/done/crossedout feature
 	li.addEventListener('click',done);
