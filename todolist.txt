@@ -1,6 +1,8 @@
 Todo list
 start date : 9/10/2019
 target end date 9/XX/2019
+target overdue date: 10/XX/2019
+
 
 What does it do?
 Add, delete, edit to-do
@@ -15,7 +17,7 @@ How does it behave?
 
 1) when it app opens:
 	a) for the first time - list should be empty
-	b) not the first time - list should be load if not empty
+	b) not the first time - list should be loaded if not empty
 2) Task entered in input field should be added to my task list group when 'DO IT' is clicked.
 3) A task should be deleted if 'delete' button is clicked.
 4) A task should be editable when 'edit' button is clicked.

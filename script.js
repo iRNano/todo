@@ -9,7 +9,7 @@ let itemsArray = localStorage.getItem('items') ?
 JSON.parse(localStorage.getItem('items')) : [];
 //Put itemsArray on localStorage
 localStorage.setItem('items', JSON.stringify(itemsArray));
-//convert strigified localStorage items to js object
+//convert stringified localStorage items to js object
 const data = JSON.parse(localStorage.getItem('items'));
 
 //Creates list from localStorage
@@ -54,7 +54,14 @@ function addItemToLocalStorage(){
 function createListItem(item){
 	const li = document.createElement("li");
 	li.className = "list-group-item";
-	li.appendChild(document.createTextNode(item));
+	let textLi = document.createElement("input");
+	textLi.disabled = true;
+	textLi.value = item;
+	textLi.className = "textInput"
+	textLi.type = "text"
+	li.appendChild(textLi);
+	// li.appendChild(document.createTextNode(item));
+	// li.appendChild(document.createElement("input"))
 	ul.appendChild(li);
 	input.value = "";
 	
@@ -84,12 +91,33 @@ function createListItem(item){
 	edtBtn.className ="btn";
 	li.appendChild(edtBtn);
 
+	edtBtn.addEventListener('click',editListButton);
+	function editListButton(){
+		textLi.disabled = false;
+		textLi.focus();
+		textLi.select();
+
+		textLi.addEventListener('keypress',editTextLi);
+		function editTextLi(keyPressed){
+			if(keyPressed.which === 13 && textLi.value.length > 0){
+				textLi.disabled = true;
+				console.log('enter')
+				for(let i=0;i<itemsArray.length;i++){
+					if(itemsArray[i] === item){
+						itemsArray[i] = textLi.value;
+					}
+				}
+			}
+			localStorage.setItem('items', JSON.stringify(itemsArray));
+		}
+	}
+
 
 	//Add selected/done/crossedout feature
-	li.addEventListener('click',done);
-	function done(){
-		li.classList.toggle("done");
-	}
+	// li.addEventListener('click',done);
+	// function done(){
+	// 	li.classList.toggle("done");
+	// }
 }
 
 //clear button that clears the localStorage
