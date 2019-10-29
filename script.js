@@ -50,7 +50,7 @@ function addItemToLocalStorage(){
 	localStorage.setItem('items', JSON.stringify(itemsArray));
 }
 
-//Creates list item
+//A Nested list item creation 
 function createListItem(item){
 	const li = document.createElement("li");
 	li.className = "list-group-item";
@@ -93,20 +93,30 @@ function createListItem(item){
 
 	edtBtn.addEventListener('click',editListButton);
 	function editListButton(){
+		console.log(Array.prototype.indexOf.call(li.parentNode.children, this));
 		textLi.disabled = false;
 		textLi.focus();
 		textLi.select();
-
+		// let test = ul.
+		// let test = 
+		// console.log(test);
+		// let listIndex = Array.prototype.indexOf.call(ul.childNodes, click);
+		// console.log(listIndex);
 		textLi.addEventListener('keypress',editTextLi);
 		function editTextLi(keyPressed){
+			
+			
+			// console.log(index);
 			if(keyPressed.which === 13 && textLi.value.length > 0){
 				textLi.disabled = true;
-				console.log('enter')
-				for(let i=0;i<itemsArray.length;i++){
-					if(itemsArray[i] === item){
-						itemsArray[i] = textLi.value;
-					}
-				}
+				// console.log(index)
+				// itemsArray[getIndex().value] = textLi.value; 
+				// for(let i=0;i<itemsArray.length;i++){
+				// 	if(itemsArray[i] === item){
+				// 		itemsArray[i] = textLi.value;
+				// 		break;
+				// 	}
+				// }
 			}
 			localStorage.setItem('items', JSON.stringify(itemsArray));
 		}
@@ -114,11 +124,15 @@ function createListItem(item){
 
 
 	//Add selected/done/crossedout feature
-	// li.addEventListener('click',done);
-	// function done(){
-	// 	li.classList.toggle("done");
-	// }
+	li.addEventListener('click',getIndex);
+	function getIndex(){
+		// index = Array.prototype.indexOf.call(ul.children, this);
+		// console.log(index)
+		// return index;
+	}
 }
+
+ 
 
 //clear button that clears the localStorage
 clear.addEventListener('click', function() {
