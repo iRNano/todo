@@ -60,6 +60,8 @@ What do I need to test and what can go wrong?
 				itemsArray.splice(i, 1);
 			}
 		}
+Analysis -  edit and deleting items should be based on index not on item name.
+
 
 
 
