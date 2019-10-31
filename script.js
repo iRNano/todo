@@ -79,15 +79,16 @@ function createListItem(item){
 	dBtn.addEventListener('click',deleteListItem);
 	function deleteListItem(e){
 		
-		let listItem = e.target.closest('li');
-		console.log('length' + ul.children.length);
-		let nodes = Array.from(ul.children);
-		console.log(nodes);
-		// let index = nodes.indexOf(listItem);
-		let index = Array.prototype.indexOf.call(nodes, listItem);
-		console.log(index);
-		ul.removeChild(listItem)
-		itemsArray.splice(index, 1);
+		// getIndex(e);
+		// let listItem = e.target.closest('li');
+		// console.log('length' + ul.children.length);
+		// let nodes = Array.from(ul.children);
+		// console.log(nodes);
+		// // let index = nodes.indexOf(listItem);
+		// let index = Array.prototype.indexOf.call(nodes, listItem);
+		// console.log(index);
+		ul.removeChild(e.target.closest('li'))
+		itemsArray.splice(Array.prototype.indexOf.call(ul.children, e.target.closest('li')), 1);
 		localStorage.setItem('items', JSON.stringify(itemsArray));
 		// li.parentNode.removeChild(li);
 		// for(let i=0; i<itemsArray.length;i++){
@@ -144,6 +145,17 @@ function createListItem(item){
 			}
 			localStorage.setItem('items', JSON.stringify(itemsArray));
 		}
+
+		// function getIndex(e){
+		// 	let listItem = e.target.closest('li');
+		// 	console.log('length' + ul.children.length);
+		// 	let nodes = Array.from(ul.children);
+		// 	console.log(nodes);
+		// 	// let index = nodes.indexOf(listItem);
+		// 	let index = Array.prototype.indexOf.call(nodes, listItem);
+
+		// 	return index
+		// }
 	}
 
 
