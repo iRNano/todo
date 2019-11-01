@@ -61,12 +61,8 @@ function createListItem(item){
 	textLi.className = "textInput"
 	textLi.type = "text"
 	li.appendChild(textLi);
-	// li.appendChild(document.createTextNode(item));
-	// li.appendChild(document.createElement("input"))
 	ul.appendChild(li);
 	input.value = "";
-	// let index = Array.prototype.indexOf.call(ul.childNodes, this);
-	// console.log(index);
 	
 	//Delete function
 	//Append delete button
@@ -78,27 +74,10 @@ function createListItem(item){
 
 	dBtn.addEventListener('click',deleteListItem);
 	function deleteListItem(e){
-		
-		// getIndex(e);
-		// let listItem = e.target.closest('li');
-		// console.log('length' + ul.children.length);
-		// let nodes = Array.from(ul.children);
-		// console.log(nodes);
-		// // let index = nodes.indexOf(listItem);
-		// let index = Array.prototype.indexOf.call(nodes, listItem);
-		// console.log(index);
 		ul.removeChild(e.target.closest('li'))
 		itemsArray.splice(Array.prototype.indexOf.call(ul.children, e.target.closest('li')), 1);
 		localStorage.setItem('items', JSON.stringify(itemsArray));
-		// li.parentNode.removeChild(li);
-		// for(let i=0; i<itemsArray.length;i++){
-		// 	if(itemsArray[i] === item){
-		// 		// console.log(i);
-		// 		console.log(item);
-		// 		itemsArray.splice(i, 1);
-		// 	}
-		// }
-		// localStorage.setItem('items', JSON.stringify(itemsArray));		
+	
 	}
 
 	//Append edit button
@@ -110,21 +89,11 @@ function createListItem(item){
 	//Edit function
 	edtBtn.addEventListener('click',editListButton);
 	function editListButton(e){
-		console.log(Array.prototype.indexOf.call(li.parentNode.children, this));
+		// console.log(Array.prototype.indexOf.call(li.parentNode.children, this));
 		textLi.disabled = false;
 		textLi.focus();
 		textLi.select();
-		// let test = ul.
-		// let test = 
-		// console.log(test);
-		// let listIndex = Array.prototype.indexOf.call(ul.childNodes, click);
-		// console.log(listIndex);
-		let listItem = e.target.closest('li');
-		console.log('length' + ul.children.length);
-		let nodes = Array.from(ul.children);
-		console.log(nodes);
-		// let index = nodes.indexOf(listItem);
-		let index = Array.prototype.indexOf.call(nodes, listItem);
+		let index = Array.prototype.indexOf.call(ul.children, e.target.closest('li'));
 		console.log(index);
 		textLi.addEventListener('keypress',editTextLi);
 		function editTextLi(keyPressed){
@@ -134,44 +103,17 @@ function createListItem(item){
 			if(keyPressed.which === 13 && textLi.value.length > 0){
 				textLi.disabled = true;
 				itemsArray[index] = textLi.value;
-				// console.log(index)
-				// itemsArray[getIndex().value] = textLi.value; 
-				// for(let i=0;i<itemsArray.length;i++){
-				// 	if(itemsArray[i] === item){
-				// 		itemsArray[i] = textLi.value;
-				// 		break;
-				// 	}
-				// }
 			}
 			localStorage.setItem('items', JSON.stringify(itemsArray));
 		}
 
-		// function getIndex(e){
-		// 	let listItem = e.target.closest('li');
-		// 	console.log('length' + ul.children.length);
-		// 	let nodes = Array.from(ul.children);
-		// 	console.log(nodes);
-		// 	// let index = nodes.indexOf(listItem);
-		// 	let index = Array.prototype.indexOf.call(nodes, listItem);
-
-		// 	return index
-		// }
 	}
 
 
 	//Add selected/done/crossedout feature
 	li.addEventListener('click',getIndex);
 	function getIndex(e){
-		// index = Array.prototype.indexOf.call(ul.children, this);
-		// console.log(index)
-		// return index;
-		// let listItem = e.target.closest('li');
-		// console.log('length' + ul.children.length);
-		// let nodes = Array.from(ul.children);
-		// console.log(nodes);
-		// // let index = nodes.indexOf(listItem);
-		// let index = Array.prototype.indexOf.call(nodes, listItem);
-		// console.log(index);
+
 	}
 }
 

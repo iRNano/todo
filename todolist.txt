@@ -1,7 +1,7 @@
 Todo list
 start date : 9/10/2019
 target end date 9/XX/2019
-target overdue date: 10/XX/2019
+target overdue date: 11/1/2019
 
 
 What does it do?
@@ -63,8 +63,10 @@ What do I need to test and what can go wrong?
 Analysis -  edit and deleting items should be based on index not on item name.
 
 
+--------------
 
-
+learn low level javascript
+create elements, add className(CSS)/attributes, and events
 
 
 
