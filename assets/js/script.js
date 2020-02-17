@@ -127,7 +127,7 @@
 // 	}
 // });
 
-
+// Apply ES5 Modules
 //UI Module
 
 var UIcontroller = (function(){
@@ -149,7 +149,7 @@ var UIcontroller = (function(){
 		},
 		addTask: function(input){
 			var html, newHTML; 
-			html = '<div class="list-item-group"><div><input id="input"type="text" value="%task%" disabled><button id="edit">E</button><button id="delete">X</button></input></div></div>'
+			html = '<div class="list-item-group" draggable="true"><div><input id="input"type="text" value="%task%" disabled><button id="edit">E</button><button id="delete">X</button></input></div></div>'
 			// <div class=\'list-item-group\'></div><div class="item clearfix" id="income-0"><div class="item__description">Salary</div><div class="right clearfix"><div class="item__value">+ 2,100.00</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>'
 
 			newHTML = html.replace('%task%', input);
@@ -213,11 +213,9 @@ var dataController = (function(){
 		loadLocalStorage: function(){
 			//JSON.parse converts stringified data to JS Object
 			tasks = JSON.parse(localStorage.getItem('items')) ? JSON.parse(localStorage.getItem('items')) : [];
-			
 			return tasks;
 		}
 	}
-
 })();
 
 //CONTROLLER module
@@ -225,7 +223,6 @@ var dataController = (function(){
 var controller = (function(uiCtrl, dataCtrl){
 
 	var setEventListeners = function(){
-
 		var DOM = uiCtrl.getDOM();
 		//Event Delegation ??
 		document.querySelector(DOM.taskDescription).addEventListener('keypress', function(event){
@@ -275,28 +272,22 @@ var controller = (function(uiCtrl, dataCtrl){
 				dataCtrl.editTask(target, input.value);
 			}
 		});
-
-
-		
 	}
 
 	var ctrlDeleteTask = function(target){
 		//Delete from array and local storage
 		dataCtrl.deleteTask(target);
 		//Remove from UI
-		uiCtrl.deleteTask(target);
-		
-		
+		uiCtrl.deleteTask(target);	
 	}
 
 	var ctrlLoadLocalStore = function(){
 		var tasks = dataCtrl.loadLocalStorage();
 		tasks.forEach(function(curr){
 			uiCtrl.addTask(curr);
-		});
-		
+		});	
 	}
-
+	// init() calls below functions
 	return {
 		init: function(){
 			setEventListeners();
@@ -305,4 +296,10 @@ var controller = (function(uiCtrl, dataCtrl){
 	}
 
 })(UIcontroller, dataController);
+//Call controller.init() which is the only accessible property of controller.
 controller.init();
+
+
+// ES6 and draggable feature
+
+
