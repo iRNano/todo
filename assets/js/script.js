@@ -149,7 +149,7 @@ var UIcontroller = (function(){
 		},
 		addTask: function(input){
 			var html, newHTML; 
-			html = '<div class="list-item-group" draggable="true"><div><input id="input"type="text" value="%task%" disabled><button id="edit">E</button><button id="delete">X</button></input></div></div>'
+			html = '<div class="list-item" draggable="true"><div><input id="input"type="text" value="%task%" disabled><button id="edit"><i id="edit"class="fas fa-pencil-alt"></i></button><button id="delete"><span id="delete">&times;</span></button></input></div></div>'
 			// <div class=\'list-item-group\'></div><div class="item clearfix" id="income-0"><div class="item__description">Salary</div><div class="right clearfix"><div class="item__value">+ 2,100.00</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>'
 
 			newHTML = html.replace('%task%', input);
@@ -161,7 +161,9 @@ var UIcontroller = (function(){
 			
 		},
 		editTask:function(target){
+		
 			var input = target.previousSibling;
+			console.log(input);
 			// input.toggleAttribute("disabled");
 			input.disabled = false;
 			input.focus();
@@ -233,7 +235,8 @@ var controller = (function(uiCtrl, dataCtrl){
 		//Assign event listener to a DOM
 		document.querySelector(DOM.addTask).addEventListener('click',ctrlAddTask);
 		//Event Delegation ??
-		document.querySelector(DOM.todoList).addEventListener('click', function(event){
+		document.querySelector(DOM.todoList).addEventListener('click' ,function(event){
+			console.log(event.target);
 			var command, target;
 			command = event.target.id;
 			target = event.target;

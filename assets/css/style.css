@@ -1,42 +1,62 @@
-<<<<<<< HEAD
 /* CSS RESET */
 *{
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
 }
-.done {
-/*CSS RESET*/
 
-*{
-	box-sizing: border-box;
-	padding: 0;
-	margin: 0;
+body{
+	min-height: 100vh;
+	background-color: #DCDCDD;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: 'Roboto', sans-serif;
 }
-
 .container{
-	margin: 0 auto;
-	width: 60%;
+	width: 50%;
+	background-color: #C5C3C6;
+	
 }
 
-.header{
+#header{
+	color: white;
+	padding: .5em;
+	font-size:2.5rem;
 	text-align: center;
+	background-color: #00A39B;
 }
 
-.input-group{
-	width: 100%;
+.new-task{
+	padding: 1em;
 	display: inline-block;
+	width: 100%;
+	background-color: #CA1551;
+	
 }
 
-#do-it{
-	float: left;
-}
-/*.done {
->>>>>>> master
-	background: #51DF70 !important;
-	color: #00891E;
+#task-description{
+	line-height: 2rem;
+	font-size: 1.5rem;
+	width:90%;
+	float:left;
 }
 
-.textInput{
-	border:none;
-}*/
+#add{
+	line-height: 2rem;
+	font-size: 1.5rem;
+	width: 10%;
+}
+
+.todolist{
+	padding: 1em;
+	font-size: 1.5rem;
+}
+
+.list-item{
+	padding: .5em;
+}
+
+input, span, i{
+	font-size: 1rem;
+}
