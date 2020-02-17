@@ -1,38 +1,36 @@
 <html>
 	<head>
 		<title>Nano's Todo list app</title>
-
-		<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+<!-- 
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
 		<link rel="stylesheet" href="./assets/css/style.css">
 
 	</head>
 	<body>
 		<main class="container">
-		<div class="container">
-			<h1 class="">TO-DO-LIST</h1>
-
-		</div>
-	
-				<div class="container">
-					<div class="input-group">
-						<label for="add"></label>
-						<input class="form-control"type="text" id="task-description" placeholder="Enter task">
-						<button class="" id="add">DO IT</button>
-					</div>
-					<h4 class="">My task</h1>
-					<div class ="todolist">
-						
-						<!-- //TODO TO-DO-LIST -->
-						
-					</div>
-					<button id="clear" class="btn btn-danger mt-5">Clear</button>
+			<section class="header"> 
+				<h1 class="">TO-DO-LIST</h1>
+				<div class="input-group">
+					<input class="form-control" type="text" id="do-it" placeholder="Enter task">
+					<button class="btn" id="add">DO IT</button>
 				</div>
+			</section>
+			<section class="">
 				
+			
+				<h4 class="mt-5 mb-5">My task</h1>
+				<ul class="list-group">
 
-		<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
-		<script type="text/javascript" src="./assets/js/script.js"></script>
-		<!-- <script>document.write('<script src="http://' + (location.host || '${1:localhost}').split(':')[0] + ':${2:35729}/livereload.js?snipver=1"></' + 'script>')</script> -->
-
+				</ul>
+				<button id="clear" class="btn">Clear</button>
+				</div>
+			</section>
+				
 		</main>
+
+		<script type="text/javascript" src="./assets/js/script.js"></script>
+		<!-- 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
+		
+		<!-- <script>document.write('<script src="http://' + (location.host || '${1:localhost}').split(':')[0] + ':${2:35729}/livereload.js?snipver=1"></' + 'script>')</script> -->	
 	</body>
 </html>
