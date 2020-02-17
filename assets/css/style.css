@@ -1,8 +1,33 @@
-.done {
+/*CSS RESET*/
+
+*{
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+.container{
+	margin: 0 auto;
+	width: 60%;
+}
+
+.header{
+	text-align: center;
+}
+
+.input-group{
+	width: 100%;
+	display: inline-block;
+}
+
+#do-it{
+	float: left;
+}
+/*.done {
 	background: #51DF70 !important;
 	color: #00891E;
 }
 
 .textInput{
 	border:none;
-}
+}*/
