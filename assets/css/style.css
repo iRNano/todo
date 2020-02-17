@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+/* CSS RESET */
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+.done {
 /*CSS RESET*/
 
 *{
@@ -24,6 +32,7 @@
 	float: left;
 }
 /*.done {
+>>>>>>> master
 	background: #51DF70 !important;
 	color: #00891E;
 }
