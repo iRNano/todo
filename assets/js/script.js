@@ -157,14 +157,13 @@ var UIcontroller = (function(){
 		},
 		deleteTask: function(target){
 			// var index = Array.prototype.indexOf.call(target.parentNode.parentNode.parentNode.children, target.parentNode.parentNode);
-			target.parentNode.parentNode.parentNode.removeChild(target.parentNode.parentNode);
+			target.parentNode.parentNode.parentNode.parentNode.removeChild(target.parentNode.parentNode.parentNode);
+			
 			
 		},
 		editTask:function(target){
-		
-			var input = target.previousSibling;
-			console.log(input);
-			// input.toggleAttribute("disabled");
+			// console.log(target.parentNode.parentNode.parentNode.parentNode);
+			var input = target.parentNode.previousSibling
 			input.disabled = false;
 			input.focus();
 			input.select();
@@ -198,11 +197,11 @@ var dataController = (function(){
 		},
 		deleteTask: function(target){
 			//Since todolist length is equal to array length. get index of list item
-			var index;
+			// var index;
 			index = Array.prototype.indexOf.call(target.parentNode.parentNode.parentNode.children, target.parentNode.parentNode);
-			//Delete from array
+			// //Delete from array
 			tasks.splice(index, 1);
-			//Update local storage with new array
+			// //Update local storage with new array
 			localStorage.setItem('items',JSON.stringify(tasks));
 		},
 		editTask: function(target, value){
@@ -236,7 +235,7 @@ var controller = (function(uiCtrl, dataCtrl){
 		document.querySelector(DOM.addTask).addEventListener('click',ctrlAddTask);
 		//Event Delegation ??
 		document.querySelector(DOM.todoList).addEventListener('click' ,function(event){
-			console.log(event.target);
+			// console.log(event.target);
 			var command, target;
 			command = event.target.id;
 			target = event.target;
@@ -254,7 +253,7 @@ var controller = (function(uiCtrl, dataCtrl){
 
 		var input;
 		input = uiCtrl.getInput();
-		console.log(input);
+		// console.log(input);
 
 		if(input !== ""){
 			dataCtrl.saveTask(input);
@@ -267,7 +266,7 @@ var controller = (function(uiCtrl, dataCtrl){
 	var ctrlEditTask = function(target){
 		//call Edit task of uiCtrl
 		var input = uiCtrl.editTask(target);
-		console.log(input);
+		// console.log(input);
 
 		input.addEventListener('keypress', function(event){
 			if(event.keyCode === 13 || event.which === 13){
@@ -279,8 +278,10 @@ var controller = (function(uiCtrl, dataCtrl){
 
 	var ctrlDeleteTask = function(target){
 		//Delete from array and local storage
+		// console.log(target.parentNode.parentNode.parentNode.parentNode);
+		// console.log(target.parentNode.parentNode.parentNode);
 		dataCtrl.deleteTask(target);
-		//Remove from UI
+		// //Remove from UI
 		uiCtrl.deleteTask(target);	
 	}
 
